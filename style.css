@@ -1,0 +1,17 @@
+ /* .res{
+    width: 174px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.wrapper{
+
+    display: flex;
+    gap: 15px;
+} 
+ */
+
+
+ tr{
+    padding: 5px;
+ }
