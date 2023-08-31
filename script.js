@@ -42,31 +42,73 @@
 
 
 
-class calc {
+// class calc {
 
-    sum(a,b){
-        return a + b;
-    }
+//     sum(a,b){
+//         return a + b;
+//     }
 
-    sub(a,b){
-        return a - b;
-    }
+//     sub(a,b){
+//         return a - b;
+//     }
 
-    mult(a,b){
-        return a * b;
-    }
+//     mult(a,b){
+//         return a * b;
+//     }
 
-    div(a,b){
-        return a / b;
-    }
+//     div(a,b){
+//         return a / b;
+//     }
 
+// }
+
+
+// let value = new calc();
+
+
+// console.log(value.sum (15,4));
+// console.log(value.sub (15,4));
+// console.log(value.mult(15,4));
+// console.log(value.div (15,4));
+
+
+
+
+
+function getPockemon(){
+    let pockemon = document.getElementById('input').value;
+    pockemon = pockemon.toLowerCase();
+
+    fetch('https://pokeapi.co/api/v2/pokemon/' + pockemon)
+    .then((response) => response.json())
+    .then((data) => {
+        let name = document.getElementById('name');
+        
+        name.innerHTML = data['name'];
+
+        let sprite = document.getElementById("sprite");
+
+        sprite.innerHTML = '<img src ="' + data["sprites"] ["front_default"] + '"></img>';
+
+        let HP = document.getElementById('baseHP');
+
+        HP.innerHTML = "Base HP " + data['stats'][0]['base_stat'];
+
+        let ATK = document.getElementById('baseATK');
+
+        ATK.innerHTML = "Base ATK " + data['stats'][1]['base_stat'];
+
+        let DEF = document.getElementById('baseDEF');
+
+        DEF.innerHTML = "Base DEF " + data['stats'][2]['base_stat'];
+    
+    });
+
+
+    
 }
 
 
-let value = new calc();
 
 
-console.log(value.sum (15,4));
-console.log(value.sub (15,4));
-console.log(value.mult(15,4));
-console.log(value.div (15,4));
+ 
