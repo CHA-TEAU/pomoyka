@@ -214,56 +214,95 @@
 
 
 
-const socket = new WebSocket('ws://127.0.0.1:8888');
+// const socket = new WebSocket('ws://127.0.0.1:8888');
 
 
-// Событие приема сообщения от сервера
-socket.onmessage = (event) => {
-    const messageFromServer = event.data;
+// // Событие приема сообщения от сервера
+// socket.onmessage = (event) => {
+//     const messageFromServer = event.data;
 
-    console.log('Получено сообщение от сервера: ' + messageFromServer);
-};
+//     console.log('Получено сообщение от сервера: ' + messageFromServer);
+// };
 
-// Событие ошибки
-socket.onerror = (error) => {
-    console.error('Произошла ошибка: ' + error.message);
-};
+// // Событие ошибки
+// socket.onerror = (error) => {
+//     console.error('Произошла ошибка: ' + error.message);
+// };
 
-// Событие закрытия соединения
-socket.onclose = (event) => {
-    if (event.wasClean) {
-        console.log('Соединение закрыто чисто, код: ' + event.code + ', причина: ' + event.reason);
-    } else {
-        console.error('Соединение разорвано');
-    }
-};
+// // Событие закрытия соединения
+// socket.onclose = (event) => {
+//     if (event.wasClean) {
+//         console.log('Соединение закрыто чисто, код: ' + event.code + ', причина: ' + event.reason);
+//     } else {
+//         console.error('Соединение разорвано');
+//     }
+// };
 
-// Событие открытия соединения
-socket.onopen = (event) => {
-    console.log('Соединение установлено');
+// // Событие открытия соединения
+// socket.onopen = (event) => {
+//     console.log('Соединение установлено');
 
-    //   Отправка сообщения на сервер после установки соединения
-    socket.send('Новый пользователь!');
-};
+//     //   Отправка сообщения на сервер после установки соединения
+//     socket.send('Новый пользователь!');
+// };
 
 
-let btn = document.getElementById("btn_send");
-let mess = document.getElementById("field_send");
-mess.addEventListener("keyup", event => {
+// let btn = document.getElementById("btn_send");
+// let mess = document.getElementById("field_send");
+// mess.addEventListener("keyup", event => {
 
-    if (event.code === "Enter") {
-        let showMess = document.getElementById("chatbox");
-        let login = document.getElementById('login');
+//     if (event.code === "Enter") {
+//         let showMess = document.getElementById("chatbox");
+//         let login = document.getElementById('login');
+
+//         showMess.innerHTML += "<p>" + login.value + " : " + mess.value + "</p>"
+//     }
+// })
+// btn.addEventListener("click", function () {
+//     socket.send(mess.value);
+
+//     let showMess = document.getElementById("chatbox");
+//     let login = document.getElementById('login');
+
+//     showMess.innerHTML += "<p>" + login.value + " : " + mess.value + "</p>"
+
+// });
+
+
+
+
+$(document).ready(function () {
+
+    // $.ajax({
+    //     type: "GET",
+
+    //     url: "https://pokeapi.co/api/v2/pokemon/pikachu",
+
+    //     success: function (data) {
+
+    //         console.log(data);
+    //     }
+    // });  
         
-        showMess.innerHTML += "<p>" + login.value + " : " + mess.value + "</p>"
-    }
-})
-btn.addEventListener("click", function () {
-    socket.send(mess.value);
 
-    let showMess = document.getElementById("chatbox");
-    let login = document.getElementById('login');
 
-    showMess.innerHTML += "<p>" + login.value + " : " + mess.value + "</p>"
+    $(".btn-hide").on("click", function(){
 
-});
+
+        $( "span" ).appendTo( "#foo" );
+
+    });
+
+
+    $(".btn-gen").on("click", function(){
+
+
+        $( ".box" ).height( 30 ).css({
+            cursor: "auto",
+            backgroundColor: "green"
+        });
+    });
+
+
+
+}); 

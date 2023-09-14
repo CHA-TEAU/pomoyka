@@ -17,10 +17,6 @@
  } */
 
 
- * {
-     margin: 0;
-     padding: 0;
- }
 
  /* 
  .wrapper {
@@ -85,7 +81,7 @@ img{
 
 
 
- body {
+ /* body {
     background-color: rgb(185, 255, 232);
 
 
@@ -128,4 +124,29 @@ img{
  button{
     height: 35px;
     width: 100px;
+ } */
+
+
+
+ body{
+   text-align: center;
+
+   padding-top: 100px;
  }
+
+
+ .box {
+    width: 200px;
+    height: 150px;
+
+    background-color: red;
+
+    margin: 0 auto;
+ }
+
+ button {
+    width: 50px;
+    height: 30px;
+ }
+
+
