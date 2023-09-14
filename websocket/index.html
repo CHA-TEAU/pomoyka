@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="field_send">
+  <button id="btn_send">Отправить!</button>
+  <script>
+   // const socket = new WebSocket('ws://127.0.0.1:8888');
+
+    // Событие открытия соединения
+    // socket.addEventListener('open', (event) => {
+    //   console.log('Соединение установлено');
+
+    //   // Отправка сообщения на сервер после установки соединения
+    //   socket.send('Привет, сервер!');
+    // });
+
+    // // Событие приема сообщения от сервера
+    // socket.addEventListener('message', (event) => {
+    //   const messageFromServer = event.data;
+    //   console.log('Получено сообщение от сервера: ' + messageFromServer);
+
+    //   // Вы можете обработать сообщение здесь
+    // });
+
+    // // Событие закрытия соединения
+    // socket.addEventListener('close', (event) => {
+    //   if (event.wasClean) {
+    //     console.log('Соединение закрыто чисто, код: ' + event.code + ', причина: ' + event.reason);
+    //   } else {
+    //     console.error('Соединение разорвано');
+    //   }
+    // });
+
+    // // Событие ошибки
+    // socket.addEventListener('error', (error) => {
+    //   console.error('Произошла ошибка: ' + error.message);
+    // });
+
+
+   
+    const socket = new WebSocket('ws://127.0.0.1:8888');
+
+    // Событие приема сообщения от сервера
+    socket.onmessage = (event) => {
+      const messageFromServer = event.data;
+      console.log('Получено сообщение от сервера: ' + messageFromServer);
+    };
+
+    // Событие ошибки
+    socket.onerror = (error) => {
+      console.error('Произошла ошибка: ' + error.message);
+    };
+
+    // Событие закрытия соединения
+    socket.onclose = (event) => {
+      if (event.wasClean) {
+        console.log('Соединение закрыто чисто, код: ' + event.code + ', причина: ' + event.reason);
+      } else {
+        console.error('Соединение разорвано');
+      }
+    };
+
+    // Событие открытия соединения
+    socket.onopen = (event) => {
+      console.log('Соединение установлено');
+
+      // Отправка сообщения на сервер после установки соединения
+      socket.send('Новый пользователь!');
+    };
+
+
+    let btn = document.getElementById("btn_send");
+    let mess = document.getElementById("field_send");
+    btn.addEventListener("click", function(){
+      socket.send(mess.value);
+
+    });
+
+
+
+  </script>
+</body>
+
+</html>
