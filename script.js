@@ -271,38 +271,110 @@
 
 
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    // $.ajax({
-    //     type: "GET",
+// $.ajax({
+//     type: "GET",
 
-    //     url: "https://pokeapi.co/api/v2/pokemon/pikachu",
+//     url: "https://pokeapi.co/api/v2/pokemon/pikachu",
 
-    //     success: function (data) {
+//     success: function (data) {
 
-    //         console.log(data);
-    //     }
-    // });  
-        
-
-
-    $(".btn-hide").on("click", function(){
-
-
-        $( "span" ).appendTo( "#foo" );
-
-    });
-
-
-    $(".btn-gen").on("click", function(){
-
-
-        $( ".box" ).height( 30 ).css({
-            cursor: "auto",
-            backgroundColor: "green"
-        });
-    });
+//         console.log(data);
+//     }
+// });  
 
 
 
-}); 
+//     $(".btn-hide").on("click", function(){
+
+
+//         $( "span" ).appendTo( "#foo" );
+
+//     });
+
+
+//     $(".btn-gen").on("click", function(){
+
+
+//         $( ".box" ).height( 30 ).css({
+//             cursor: "auto",
+//             backgroundColor: "green"
+//         });
+//     });
+
+
+
+// }); 
+
+
+// ____________________________________________________________________________________________________________
+
+
+// let arr = [6, 3, 9, 234, 94, 52,22];
+
+
+// let obj ={
+// "key" : "value",
+// "key2" : "valuee",
+// "key3": "vvalue"};
+
+// let json = JSON.stringify(obj);
+// console.log(json);
+
+// console.log(JSON.parse(json));
+
+
+// let btn = document.querySelectorAll(".btn");
+
+
+// btn.forEach(itm => {
+
+//     itm.addEventListener("click", function(event){
+//         console.log(event.target.innerText);
+//     });
+// });
+
+
+// let send = document.getElementById("send");
+
+
+// send.addEventListener("click", function(){
+//     console.log(document.getElementById("txt").value)
+// })
+
+
+
+
+// fetch("https://pokeapi.co/api/v2/pokemon")
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((data) => {
+//         console.log(data);
+//     })
+
+
+
+
+
+
+// const ws = new WebSocket('ws://127.0.0.1:8888');
+
+// ws.onopen = (event) => {
+
+//     ws.send("Connected!")
+// }
+
+// ws.onmessage = (event) =>{
+
+//     console.log(event.data);
+// }
+
+
+
+$.ajax({
+    url : "https://pokeapi.co/api/v2/pokemon/56"
+}).done(function(data){
+    console.log(data)
+})
