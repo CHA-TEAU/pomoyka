@@ -373,8 +373,81 @@
 
 
 
-$.ajax({
-    url : "https://pokeapi.co/api/v2/pokemon/56"
-}).done(function(data){
+// $.ajax({
+//     url : "https://pokeapi.co/api/v2/pokemon/56"
+// }).done(function(data){
+//     console.log(data)
+// })
+
+
+
+
+
+
+
+
+// ___________________________________________________________________________
+
+
+
+
+// const ws = new WebSocket("ws://127.0.0.1:8888");
+
+// let login = prompt(); //УБЕРИ ВАЛЬЮ ДУРА БЛЯТЬ
+// ws.onopen = () => {
+
+//     ws.send("Hello, User!")
+// }
+
+// ws.onmessage = (event) =>{
+
+    
+
+
+
+//     let mess = document.getElementById("mess-box");
+
+//     mess.innerHTML += "<div>" + login + ":" + event.data + "</div>";
+
+   
+// }
+
+// let send = document.getElementById("send");
+
+// send.addEventListener("click", function(){
+
+//     let txt = document.getElementById("txt").value;
+
+//     ws.send(txt)
+
+
+// })
+
+
+
+fetch("https://api.open-meteo.com/v1/forecast?latitude=54&longitude=-2&hourly=temperature_2m&current_weather=true")
+.then((response) => {
+    return response.json();
+})
+.then((data) => {
+
+    let temp = document.getElementById("temp");
+    let time = document.getElementById("time");
+    let windd = document.getElementById("sunr");
+    let winds = document.getElementById("suns");
+    let tz = document.getElementById("tz");
+
+
+    temp.innerText = "Temperature: " + data["current_weather"]["temperature"];
+    time.innerText = "Time: " + data["current_weather"]["time"];
+    windd.innerText = "Wind direction: " + data["current_weather"]["winddirection"];
+    winds.innerText = "Wind speed: " + data["current_weather"]["windspeed"];
+    tz.innerText = "Timezone: " + data["timezone"];
+
+
     console.log(data)
+    
+    
+
+
 })
